@@ -22,7 +22,7 @@ def toDark(image, threshold):
 	for i in range(0,len(arr)):
 		for j in range(0,len(arr[i])):
 			if arr[i][j] >= threshold:
-				arr[i][j] = 20
+				arr[i][j] = 30
 			else:
 				arr[i][j] = 255
 	return PIL.Image.fromarray(arr)
@@ -34,7 +34,7 @@ darkImages = []
 
 
 for i in range(0,len(images)):
-	print("+ Converting page [" + str(i) + "]")
+	print("+ Converting page " + str(i+1))
 	darkImages.append(toDark(images[i],125))
 
 
