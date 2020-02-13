@@ -15,7 +15,7 @@ def toGrayscale(image):
 	grayscale = image.convert("L")
 	return grayscale
 
-def invert(image, threshold):
+def toDark(image, threshold):
 	grayscale = toGrayscale(image)
 	arr = np.array(grayscale)
 
@@ -27,19 +27,22 @@ def invert(image, threshold):
 				arr[i][j] = 255
 	return PIL.Image.fromarray(arr)
 
-
 # Convert to dark mode and save pdf
+print("\n+ Retrieving " + fileName)
 images = convert_from_path(fileName)
 darkImages = []
 
+
 for i in range(0,len(images)):
-	darkImages.append(invert(images[i],125))
+	print("+ Converting page [" + str(i) + "]")
+	darkImages.append(toDark(images[i],125))
 
 
-firstImage = darkImages.pop(0)
 
 fileName = fileName.replace('.pdf','')
 newFileName = fileName + "-dark.pdf"
 
-firstImage.save(newFileName,append_images=darkImages)
+print("+ Saving " + newFileName)
+darkImages[0].save(newFileName,format='pdf',save_all=True,append_images=darkImages[1:])
+darkImages[1].save('new.pdf')
 
