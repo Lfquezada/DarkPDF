@@ -53,5 +53,3 @@ newFileName = fileName + "-dark.pdf"
 
 print("> Saving " + newFileName + "\n")
 darkImages[0].save(newFileName,format='pdf',save_all=True,append_images=darkImages[1:])
-darkImages[1].save('new.pdf')
-
