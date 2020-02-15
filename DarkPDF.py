@@ -44,7 +44,7 @@ darkImages = []
 
 for i in range(0,len(images)):
 	print(">> Converting page " + str(i+1))
-	darkImages.append(toDark(images[i],125))
+	darkImages.append(toDark(images[i],200))
 
 
 
