@@ -1,5 +1,7 @@
 # DarkPDF
-Convert your PDF files to dark mode.
+Convert your PDF files to dark mode!
+* Ease your eye stress at night
+* No more white pages
 
 ## Requirements
 * Numpy
